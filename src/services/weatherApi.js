@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const getWeatherByCity = async (city) => { 
-    const API_KEY = "c8bcc2ef4c7c82055862f2eb9d5cff1f";
+    const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
     const url = `https://api.openweathermap.org/data/2.5/weather`;
     
     try {
@@ -14,8 +14,12 @@ export const getWeatherByCity = async (city) => {
         });
         return response.data;
     } catch (error) {
-        console.error("API Error:", error.response?.status); // Check if this logs 404
-        throw error; // Return null so the component can trigger the Error state
+        if (error.response && error.response.status === 404) {
+        throw new Error(`We couldn't find "${searchCity}". Check your spelling!`);
+        } 
+        else if (!response.ok) {
+            throw new Error("Something went wrong fetching the weather.");
+        } 
     }
 }
 
