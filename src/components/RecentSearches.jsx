@@ -1,7 +1,7 @@
 import React, {useEffect, useState}from 'react'
 import { GiBackwardTime } from "react-icons/gi";
 
-const RecentSearches = ({history, onClear}) => {
+const RecentSearches = ({history, onClear, onClickRecent}) => {
   
   return (
     !history || history.length === 0 ? null :
@@ -20,13 +20,13 @@ const RecentSearches = ({history, onClear}) => {
         <div className='flex flex-row gap-2 py-4 px-4 text-xs font-medium'>
 
           {history.map((item) => (
-  <span key={item.id} className='bg-gray-300 rounded-lg py-1 px-2'>
-    {item.name}
-  </span>
-))}
-          {/* <span className='bg-gray-300 rounded-lg py-1 px-2'>Davao City</span>
-          <span className='bg-gray-300 rounded-lg py-1 px-2'>Davao City</span>
-          <span className='bg-gray-300 rounded-lg py-1 px-2'>Davao City</span> */}
+            <button 
+              key={item.id} 
+              className='bg-gray-300 rounded-lg py-1 px-2 cursor-pointer'
+              onClick={(e) => onClickRecent(item.name, e)}>
+              {item.name}
+            </button>
+          ))}
         </div>
     </div>
   )

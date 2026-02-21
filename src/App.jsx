@@ -45,7 +45,7 @@ const App = () => {
         <Header onClickUnit={toggleUnit} unit={unit}/>
         <div className='flex flex-col mt-8 w-full items-center gap-6 '>
             <SearchBar onSearch = {onSearchSubmit}/>
-            <RecentSearches history={searchHistory} onClear={clearSearchHistory}/>
+            <RecentSearches history={searchHistory} onClear={clearSearchHistory} onClickRecent={setCity}/>
             
             <WeatherCard city={city}  unit={unit}/>
             

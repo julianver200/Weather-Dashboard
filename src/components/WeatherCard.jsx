@@ -34,7 +34,7 @@ const getDisplayTemperature = () => {
           throw new Error("City not found");
         }
         setWeather(data)
-        console.log(data);
+        // console.log(data);
       }catch(error){
         setError(error.message);
       }finally{
@@ -58,9 +58,9 @@ const getDisplayTemperature = () => {
         {loading ? (
           <div className="text-center p-10">Loading weather for {city}...</div>
         )
-         :
+        :
         error ? (
-          <div className="text-red-500 text-center p-10">Oops! City does not Exist</div>
+          <div className="text-red-500 text-center p-10">Oops! City does not Exist!</div>
         ):
         !weather ? (<div className="text-black-400 p-10">Search for a city to see the weather.</div>
         ): 
