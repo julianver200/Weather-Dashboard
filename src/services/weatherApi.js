@@ -14,12 +14,7 @@ export const getWeatherByCity = async (city) => {
         });
         return response.data;
     } catch (error) {
-        if (error.response && error.response.status === 404) {
-        throw new Error(`We couldn't find "${searchCity}". Check your spelling!`);
-        } 
-        else if (!response.ok) {
-            throw new Error("Something went wrong fetching the weather.");
-        } 
+        throw error;
     }
 }
 

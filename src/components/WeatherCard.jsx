@@ -8,7 +8,7 @@ import { CiClock2 } from "react-icons/ci";
 
 const WeatherCard = ({city, unit}) => {
   const [weather, setWeather] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [currentTime, setCurrentTime] = useState(null);
   
@@ -55,13 +55,16 @@ const getDisplayTemperature = () => {
   <>
     <div className='flex flex-col w-[90%] md:w-[50%] border rounded-lg text-lg mx-auto'>
       <div className='flex flex-col w-full items-center justify-center py-6 gap-2'>
-        {!weather ? (<div className="text-black-400 p-10">Search for a city to see the weather.</div>
-        ): 
-        loading ? (
+        {loading ? (
           <div className="text-center p-10">Loading weather for {city}...</div>
-        ) : error ? (
-          <div className="text-red-500 text-center p-10">Oops! {error}</div>
-        ) : (
+        )
+         :
+        error ? (
+          <div className="text-red-500 text-center p-10">Oops! City does not Exist</div>
+        ):
+        !weather ? (<div className="text-black-400 p-10">Search for a city to see the weather.</div>
+        ): 
+         (
           <> 
             <div className="font-bold flex items-center gap-1">
               <MdOutlineLocationOn/> {weather.name}, {weather.sys.country}
