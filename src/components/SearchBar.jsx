@@ -25,8 +25,8 @@ const SearchBar = ({onSearch}) => {
   };
   return (
 <form className="flex flex-row gap-2 justify-center mx-auto px-2 
-                w-[90%]          /* Default (Mobile/under 640px) */
-                sm:w-[90%]      /* Tablet-ish */
+                w-full         /* Default (Mobile/under 640px) */
+                sm:w-[95%]      /* Tablet-ish */
                 md:w-[50%]      /* Small Laptop */
                 lg:w-[55%]      /* Desktop */
                 xl:w-[55%]"
@@ -48,7 +48,9 @@ const SearchBar = ({onSearch}) => {
     <button 
         type="submit"
         className='border py-2 px-4 rounded-3xl cursor-pointer bg-black text-white 
-        hover:bg-gray-900 transition-colors shrink-0'
+        hover:bg-gray-900 transition-colors shrink-0 
+        inline-block
+        max-[640px]:hidden'
         onClick={handleSearchClick}
     >Search</button>
     </form>
