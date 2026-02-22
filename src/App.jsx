@@ -3,17 +3,20 @@ import Header from './components/Header'
 import RecentSearches from './components/RecentSearches'
 import WeatherCard from './components/WeatherCard'
 import SearchBar from './components/SearchBar'
+import { getWeatherTheme } from './utils/weatherTheme'
 
 const App = () => {
   const [city, setCity] = useState(null);
   const [searchHistory, setSearchHistory] = useState(() => {
     const savedData = localStorage.getItem('searchHistory');
     return savedData ? JSON.parse(savedData) : [];
-
   });
   const [unit, setUnit] = useState('°C');
   
+  const [appWeather, setAppWeather] = useState(null);
+  const currentWeather = getWeatherTheme(appWeather);
   useEffect(() => {
+  
       localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
   },[searchHistory]);
 
@@ -41,13 +44,17 @@ const App = () => {
 };
 
   return (
-    <div className='w-full min-h-full flex flex-col mb-8'>
+    <div className={`w-full min-h-screen flex flex-col bg-linear-to-br ${currentWeather.gradient} `}>
         <Header onClickUnit={toggleUnit} unit={unit}/>
-        <div className='flex flex-col mt-8 w-full items-center gap-6 '>
+        <div className='flex flex-col pb-4 w-full items-center gap-4 '>
             <SearchBar onSearch = {onSearchSubmit}/>
-            <RecentSearches history={searchHistory} onClear={clearSearchHistory} onClickRecent={setCity}/>
+            <RecentSearches history={searchHistory} onClear={clearSearchHistory} onClickRecent={onSearchSubmit}/>
             
-            <WeatherCard city={city}  unit={unit}/>
+            <WeatherCard 
+            city={city}  
+            unit={unit}
+            onWeatherData={setAppWeather}
+            />
             
         </div>
         

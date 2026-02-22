@@ -1,25 +1,36 @@
 export function getWeatherTheme(weatherData) {
-  // 1. Safely check if the data exists
   if (!weatherData || !weatherData.weather || !weatherData.weather[0]) {
-    return { theme: "default", image: "/images/default.jpg" };
+    // Default: Slate Gray to Darker Slate
+   return { 
+      theme: "default", 
+      image: "/images/default.jpg", 
+      gradient: "from-slate-400 to-slate-600" 
+    };
   }
-
-  // 2. Extract the exact OpenWeather string
   const weatherMain = weatherData.weather[0].main;
 
-  // 3. Return the exact file path to your downloaded photos
   switch (weatherMain) {
     case "Clear":
-      return { theme: "sunny", image: "/images/sunny.jpg" };
+      // Sunny: Warm Amber to Deep Orange
+      return { theme: "sunny", image: "/images/sunny.jpg", gradient: "from-amber-300 to-orange-500" };
+      
     case "Clouds":
-      return { theme: "cloudy", image: "/images/cloudy.jpg" };
+      // Cloudy: Soft Gray to Blue-Gray
+      return { theme: "cloudy", image: "/images/cloudy.jpg", gradient: "from-gray-300 to-slate-500" };
+      
     case "Rain":
     case "Drizzle":
-      return { theme: "rainy", image: "/images/rainy.jpg" };
+      // Rainy: Light Blue to Deep Ocean Blue
+      return { theme: "rainy", image: "/images/rainy.jpg", gradient: "from-blue-400 to-blue-700" };
+      
     case "Snow":
-      return { theme: "snowy", image: "/images/snowy.jpg" };
+      // Snowy: Icy White to Light Sky Blue
+      return { theme: "snowy", image: "/images/snowy.jpg", gradient: "from-blue-50 to-blue-200" };
+      
     case "Thunderstorm":
-      return { theme: "storm", image: "/images/storm.jpg" };
+      // Storm: Dark Purple-Gray to Almost Black
+      return { theme: "storm", image: "/images/storm.jpg", gradient: "from-slate-700 to-gray-900" };
+      
     case "Mist":
     case "Smoke":
     case "Haze":
@@ -29,8 +40,10 @@ export function getWeatherTheme(weatherData) {
     case "Ash":
     case "Squall":
     case "Tornado":
-      return { theme: "foggy", image: "/images/foggy.jpg" };
+      // Foggy: Pale Gray to Silver
+      return { theme: "foggy", image: "/images/foggy.jpg", gradient: "from-gray-200 to-gray-400" };
+      
     default:
-      return { theme: "default", image: "/images/default.jpg" };
+      return { theme: "default", image: "/images/default.jpg", gradient: "from-slate-400 to-slate-600" };
   }
 }

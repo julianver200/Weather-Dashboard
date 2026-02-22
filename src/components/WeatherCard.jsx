@@ -6,27 +6,28 @@ import { FaRegCalendar } from "react-icons/fa";
 import { CiClock2 } from "react-icons/ci";
 
 
-const WeatherCard = ({city, unit}) => {
+const WeatherCard = ({city, unit, onWeatherData}) => {
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [currentTime, setCurrentTime] = useState(null);
-  
-const getDisplayTemperature = () => {
-  // Assuming your API already gives you Celsius (metric)
-  if (unit === '°C') {
-    // Just round the default Celsius temperature
-    return Math.round(weather.main.temp); 
-  } else if (unit === '°F') {
-    // Convert the Celsius temperature to Fahrenheit
-    return Math.round((weather.main.temp * 9/5) + 32);
-  }
-};
+
+  const getDisplayTemperature = () => {
+    // Assuming your API already gives you Celsius (metric)
+    if (unit === '°C') {
+      // Just round the default Celsius temperature
+      return Math.round(weather.main.temp); 
+    } else if (unit === '°F') {
+      // Convert the Celsius temperature to Fahrenheit
+      return Math.round((weather.main.temp * 9/5) + 32);
+    }
+  };
+
   useEffect(() => {
     if (!city) return;
     setError(null); 
-      setWeather(null);
-      setLoading(true);
+    setWeather(null);
+    setLoading(true);
     const getWeather = async () => {
       try{
         const data = await getWeatherByCity(city);
@@ -34,7 +35,8 @@ const getDisplayTemperature = () => {
           throw new Error("City not found");
         }
         setWeather(data)
-        // console.log(data);
+        onWeatherData(data);
+        console.log(data);
       }catch(error){
         setError(error.message);
       }finally{
@@ -53,8 +55,8 @@ const getDisplayTemperature = () => {
 
  return (
   <>
-    <div className='flex flex-col w-[90%] md:w-[50%] border rounded-lg text-lg mx-auto'>
-      <div className='flex flex-col w-full items-center justify-center py-6 gap-2'>
+    <div className='flex flex-col w-[90%] md:w-[50%]  border rounded-lg text-lg mx-auto bg-white '>
+      <div className='flex flex-col w-full items-center justify-center py-6 gap-1'>
         {loading ? (
           <div className="text-center p-10">Loading weather for {city}...</div>
         )
@@ -87,7 +89,7 @@ const getDisplayTemperature = () => {
         )}
       </div>
     </div>
-    {weather && <WeatherDetails weather={weather} unit={unit} />}
+    {weather && <WeatherDetails weather={weather} unit={unit}  />}
      </>
   );
  

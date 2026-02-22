@@ -23,17 +23,17 @@ const Header = ({onClickUnit, unit}) => {
                 </h1>
             </div>
             <div className='flex flex-row gap-1.5 h-7.5 w-20 justify-center mr-3'>
-                <button className='border-2 cursor-pointer text-sm font-semibold rounded-lg px-2'>
+                <button className='border-2 cursor-pointer text-sm font-semibold rounded-lg px-2 bg-white'>
                     <MdNightsStay/>
                 </button>
                 
                 <button 
                     type="button"
-                    className='border-2 cursor-pointer text-sm font-semibold rounded-lg px-2'
+                    className='border-2 cursor-pointer text-sm font-semibold rounded-lg px-2 bg-white'
                     value={unit}
                     onClick={onClickUnit}
                 >{unit}</button>
-                <button className='border-2 cursor-pointer text-sm font-semibold rounded-lg px-2'
+                <button className='border-2 cursor-pointer text-sm font-semibold rounded-lg px-2 bg-white'
                     onClick={() => window.location.reload()}
                 >
                     <FiRefreshCw/>

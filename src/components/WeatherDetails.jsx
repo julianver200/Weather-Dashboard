@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import { TbTemperature } from "react-icons/tb";
 import { GiHeavyRain } from "react-icons/gi";
 import { LuWind } from "react-icons/lu";
@@ -28,7 +27,7 @@ const getSpeedUnit = () =>{
     }
 }
 return (
-    <div className='flex flex-row justify-around w-[90%] md:w-[50%] border rounded-lg py-6 px-2'>
+    <div className='flex flex-row justify-around w-[90%] md:w-[50%] border rounded-lg py-4 px-2 bg-white'>
         <div className='flex flex-col items-center text-sm gap-2'>
             <span><TbTemperature  className='text-4xl text-gray-700'/></span>
             <span className='mt-2'>Feels Like</span>

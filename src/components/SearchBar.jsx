@@ -27,7 +27,7 @@ const SearchBar = ({onSearch}) => {
                 xl:w-[55%]"
       onSubmit={(e) => handleSubmit(e)}
       required>
-        <div  className='border p-1 w-[80%] flex flex-row  rounded-3xl gap-1'>
+        <div  className='border p-1 w-[80%] flex flex-row  rounded-3xl gap-1 bg-white'>
           <button onClick={(e) => handleClick(e)} className='cursor-pointer' type='submit'>
             <IoIosSearch className='text-3xl text-gray-600 ml-1 shrink-0'/>
           </button>  
@@ -36,7 +36,7 @@ const SearchBar = ({onSearch}) => {
             type="text" 
             autoComplete="off"
             placeholder='Search City...'
-            className='w-full h-full pl-1 rounded-lg bg-transparent outline-none focus:bg-gray-200 focus:rounded-2xl focus:pl-3  transition-colors mr-1 '
+            className='w-full h-full pl-1 rounded-lg bg-transparent outline-none  focus:bg-gray-200 focus:rounded-2xl focus:pl-3  transition-colors mr-1 '
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)
             
@@ -51,8 +51,8 @@ const SearchBar = ({onSearch}) => {
         inline-block
         max-[640px]:hidden ${
           isInputEmpty 
-            ? 'bg-gray-600 text-white cursor-normal' // The "Off" look
-            : 'bg-black text-white hover:bg-gray-800 cursor-pointer shadow-md  ' // The "On" look
+            ? 'bg-gray-600 text-white cursor-normal'
+            : 'bg-black text-white hover:bg-gray-800 cursor-pointer shadow-md  ' 
         }`}
         
         onClick={(e) => handleClick(e)}
