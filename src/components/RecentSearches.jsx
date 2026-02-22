@@ -23,7 +23,7 @@ const RecentSearches = ({history, onClear, onClickRecent}) => {
             <button 
               key={item.id} 
               className='bg-gray-300 rounded-lg py-1 px-2 cursor-pointer'
-              onClick={(e) => onClickRecent(item.name, e)}>
+              onClick={(e) => onClickRecent(item.name, e  )}>
               {item.name}
             </button>
           ))}

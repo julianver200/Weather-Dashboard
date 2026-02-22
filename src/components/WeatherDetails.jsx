@@ -17,7 +17,7 @@ const getSpeed =() => {
      if(unit === '°C') {
         return weather.wind.speed
     } else if (unit === '°F') {
-        return Math.round(weather.wind.speed * 2.23694);
+        return (weather.wind.speed * 2.23694).toFixed(2);
     }
 }
 const getSpeedUnit = () =>{
