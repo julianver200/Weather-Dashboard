@@ -50,11 +50,11 @@ const SearchBar = ({onSearch}) => {
         shrink-0 
         inline-block
         max-[640px]:hidden 
-        transition-all duration-100 hover:scale-105 active:scale-95
+        transition-all duration-100 
         ${
           isInputEmpty 
             ? 'bg-gray-600 text-white cursor-normal'
-            : 'bg-black text-white hover:bg-gray-800 cursor-pointer shadow-md  ' 
+            : 'bg-black text-white hover:bg-gray-800 cursor-pointer shadow-md hover:scale-105 active:scale-95 ' 
         }`}
         
         onClick={(e) => handleClick(e)}
