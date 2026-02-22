@@ -4,7 +4,7 @@ export function getWeatherTheme(weatherData) {
    return { 
       theme: "default", 
       image: "/images/default.jpg", 
-      gradient: "from-slate-400 to-slate-600" 
+      gradient: "bg-gradient-to-r from-[#40f2ff] via-[#00dbeb] to-[#004857]"
     };
   }
   const weatherMain = weatherData.weather[0].main;

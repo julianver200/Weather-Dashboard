@@ -22,24 +22,36 @@ const Header = ({onClickUnit, unit}) => {
                     Weather Dashboard
                 </h1>
             </div>
-            <div className='flex flex-row gap-1.5 h-7.5 w-20 justify-center mr-3'>
-                <button className='border-2 cursor-pointer text-sm font-semibold rounded-lg px-2 bg-white'>
-                    <MdNightsStay/>
-                </button>
-                
-                <button 
-                    type="button"
-                    className='border-2 cursor-pointer text-sm font-semibold rounded-lg px-2 bg-white'
-                    value={unit}
-                    onClick={onClickUnit}
-                >{unit}</button>
-                <button className='border-2 cursor-pointer text-sm font-semibold rounded-lg px-2 bg-white'
-                    onClick={() => window.location.reload()}
-                >
-                    <FiRefreshCw/>
-                </button>
-                
-            </div>
+            <div className='flex flex-row gap-2 w-30 h-8 justify-center mr-3'>
+                        {/* Dark Mode Toggle */}
+                        <button 
+                        className='flex-1 basis-0  flex items-center justify-center border border-transparent cursor-pointer text-sm font-semibold 
+                            rounded-lg bg-white shadow-lg shadow-black/20 transition-all duration-100
+                            hover:border-slate-400  hover:scale-105 active:scale-95'lassName='flex-1 basis-0  flex items-center justify-center border border-transparent hover:border-slate-400 cursor-pointer text-sm font-semibold rounded-lg bg-white shadow-lg shadow-black/20 transition-all duration-200 hover:scale-105 active:scale-95'>
+                            <MdNightsStay className="text-lg"/>
+                        </button>
+                        
+                        {/* Unit Toggle */}
+                        <button 
+                            type="button"
+                            className='flex-1 basis-0  flex items-center justify-center border border-transparent cursor-pointer text-sm font-semibold 
+                            rounded-lg bg-white shadow-lg shadow-black/20 transition-all duration-100
+                            hover:border-slate-400  hover:scale-105 active:scale-95'
+                            onClick={onClickUnit}
+                        >
+                            {unit}
+                        </button>
+
+                        {/* Refresh Button */}
+                        <button 
+                            className='flex-1 basis-0  flex items-center justify-center border border-transparent cursor-pointer text-sm font-semibold 
+                            rounded-lg bg-white shadow-lg shadow-black/20 transition-all duration-100
+                            hover:border-slate-400  hover:scale-105 active:scale-95'
+                            onClick={() => window.location.reload()}
+                        >
+                            <FiRefreshCw className="text-lg"/>
+                        </button>
+                    </div>
         </header>
     </>
   )

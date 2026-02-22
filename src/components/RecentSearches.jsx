@@ -5,7 +5,7 @@ const RecentSearches = ({history, onClear, onClickRecent}) => {
   
   return (
     !history || history.length === 0 ? null :
-    <div className='flex flex-col w-[90%] md:w-[50%] border rounded-lg bg-white'>
+    <div className='flex flex-col w-[90%] md:w-[50%] rounded-lg bg-white shadow-2xl shadow-black/50'>
         <div className='flex flex-row justify-between py-1 px-3 mt-1'>
           <div className='flex flex-row items-center gap-1'>
             <GiBackwardTime className='shrink-0 text-xs sm:text-xl -mb-0.5 '/>
@@ -13,7 +13,8 @@ const RecentSearches = ({history, onClear, onClickRecent}) => {
           </div>
           <button 
             className='text-xs px-3 transition-all duration-200 ease-in-out
-            hover:cursor-pointer hover:rounded-lg hover:bg-gray-400 '
+            hover:cursor-pointer hover:rounded-lg hover:bg-gray-400
+            hover:scale-105 active:scale-95 '
             onClick={(e) => onClear(e.target.value)}
           >X <span className='ml-1'>Clear</span></button>
         </div>
@@ -22,7 +23,7 @@ const RecentSearches = ({history, onClear, onClickRecent}) => {
           {history.map((item) => (
             <button 
               key={item.id} 
-              className='bg-gray-300 rounded-lg py-1 px-2 cursor-pointer'
+              className='bg-gray-300 rounded-lg py-1 px-2 cursor-pointer transition-all duration-100 hover:scale-115 active:scale-100'
               onClick={() => onClickRecent(item.name  )}>
               {item.name}
             </button>

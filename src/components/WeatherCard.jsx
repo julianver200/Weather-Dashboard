@@ -55,14 +55,14 @@ const WeatherCard = ({city, unit, onWeatherData}) => {
 
  return (
   <>
-    <div className='flex flex-col w-[90%] md:w-[50%]  border rounded-lg text-lg mx-auto bg-white '>
+    <div className='flex flex-col w-[90%] md:w-[50%]   rounded-lg text-lg mx-auto bg-white shadow-2xl shadow-black/50'>
       <div className='flex flex-col w-full items-center justify-center py-6 gap-1'>
         {loading ? (
           <div className="text-center p-10">Loading weather for {city}...</div>
         )
         :
         error ? (
-          <div className="text-red-500 text-center p-10">Oops! City does not Exist!</div>
+          <div className="text-red-500 text-center p-10">Oops! City not found.</div>
         ):
         !weather ? (<div className="text-black-400 p-10">Search for a city to see the weather.</div>
         ): 
