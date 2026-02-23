@@ -27,7 +27,7 @@ const Header = ({onClickUnit, unit}) => {
                         <button 
                         className='flex-1 basis-0  flex items-center justify-center border border-transparent cursor-pointer text-sm font-semibold 
                             rounded-lg bg-white shadow-lg shadow-black/20 transition-all duration-100
-                            hover:border-slate-400  hover:scale-105 active:scale-95'lassName='flex-1 basis-0  flex items-center justify-center border border-transparent hover:border-slate-400 cursor-pointer text-sm font-semibold rounded-lg bg-white shadow-lg shadow-black/20 transition-all duration-200 hover:scale-105 active:scale-95'>
+                            hover:scale-105 active:scale-95'>
                             <MdNightsStay className="text-lg"/>
                         </button>
                         
@@ -36,7 +36,7 @@ const Header = ({onClickUnit, unit}) => {
                             type="button"
                             className='flex-1 basis-0  flex items-center justify-center border border-transparent cursor-pointer text-sm font-semibold 
                             rounded-lg bg-white shadow-lg shadow-black/20 transition-all duration-100
-                            hover:border-slate-400  hover:scale-105 active:scale-95'
+                            hover:scale-105 active:scale-95'
                             onClick={onClickUnit}
                         >
                             {unit}
@@ -46,7 +46,7 @@ const Header = ({onClickUnit, unit}) => {
                         <button 
                             className='flex-1 basis-0  flex items-center justify-center border border-transparent cursor-pointer text-sm font-semibold 
                             rounded-lg bg-white shadow-lg shadow-black/20 transition-all duration-100
-                            hover:border-slate-400  hover:scale-105 active:scale-95'
+                            hover:scale-105 active:scale-95'
                             onClick={() => window.location.reload()}
                         >
                             <FiRefreshCw className="text-lg"/>
